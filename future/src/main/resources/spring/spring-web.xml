@@ -38,6 +38,6 @@
     <context:component-scan base-package="com.sosoneo.controller" />
 
     <!-- 支持异步方法执行 -->
-    <task:executor id="taskExecutor" pool-size="1-5"  />
+    <task:executor id="taskExecutor" pool-size="5"  />
     <task:annotation-driven executor="taskExecutor"/>
 </beans>

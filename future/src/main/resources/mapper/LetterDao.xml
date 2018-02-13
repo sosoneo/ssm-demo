@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sosoneo.dao.LetterDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <insert id="insertLetter" parameterType="Letter" useGeneratedKeys="true" keyProperty="letterId">
+        INSERT INTO t_letter (content, email, delivery_time, create_time)
+        VALUES (#{content}, #{email}, #{deliveryTime}, #{createTime})
+    </insert>
+
+    <select id="queryAll" resultType="Letter">
+        SELECT
+        *
+        FROM
+        t_letter
+        ORDER BY
+        letter_id
+    </select>
+
+    <select id="queryById" resultType="Letter">
+        SELECT
+        *
+        FROM
+        t_letter
+        WHERE
+        letter_id = #{letterId}
+        ORDER BY
+        letter_id
+    </select>
+</mapper>
